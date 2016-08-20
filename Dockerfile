@@ -4,6 +4,9 @@ MAINTAINER Anthony Tatowicz
 
 WORKDIR /
 
+RUN wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1404/x86_64/cuda-repo-ubuntu1404_7.5-18_amd64.deb \
+    dpkg -i cuda-repo-ubuntu1404_7.5-18_amd64.deb
+
 RUN apt-get update \
     && apt-get -y install software-properties-common \
     && add-apt-repository -y ppa:ethereum/ethereum -y \
@@ -22,10 +25,12 @@ RUN apt-get update \
      opencl-headers \
      mesa-common-dev \
      libmicrohttpd-dev \
-     build-essential
+     build-essential \
+     cuda
 
 RUN git clone https://github.com/Genoil/cpp-ethereum/ \
     && cd cpp-ethereum \
+    && git checkout 110 \
     && mkdir build \
     && cd build \
     && cmake -DBUNDLE=cudaminer .. \
