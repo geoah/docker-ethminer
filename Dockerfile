@@ -1,4 +1,4 @@
-FROM nvidia/cuda:7.5-devel-ubuntu14.04
+FROM nvidia/cuda:8.0-devel-ubuntu14.04
 
 MAINTAINER Anthony Tatowicz
 
@@ -29,7 +29,7 @@ RUN git clone https://github.com/Genoil/cpp-ethereum/ \
     && git checkout 110 \
     && mkdir build \
     && cd build \
-    && cmake -DBUNDLE=cudaminer .. \
+    && cmake -DBUNDLE=cudaminer -DCOMPUTE=61 .. \
     && make -j8 \
     && mkdir /data
 
@@ -40,4 +40,4 @@ ENV GPU_USE_SYNC_OBJECTS=1
 ENV GPU_MAX_ALLOC_PERCENT=100
 ENV GPU_SINGLE_ALLOC_PERCENT=100
 
-ENTRYPOINT ["/cpp-ethereum/build/ethminer/ethminer", "--farm-recheck", "200", "-U" , "-E", "old", "-R", "/data"]
+ENTRYPOINT ["/cpp-ethereum/build/ethminer/ethminer"]
