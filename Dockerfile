@@ -22,12 +22,7 @@ RUN apt-get update \
      opencl-headers \
      mesa-common-dev \
      libmicrohttpd-dev \
-     build-essential \
-     cuda \
-     wget
-
-RUN wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1404/x86_64/cuda-repo-ubuntu1404_7.5-18_amd64.deb \
-    dpkg -i cuda-repo-ubuntu1404_7.5-18_amd64.deb
+     build-essential
 
 RUN git clone https://github.com/Genoil/cpp-ethereum/ \
     && cd cpp-ethereum \
