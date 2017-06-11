@@ -26,7 +26,7 @@ nvidia-docker run -it anthonytatowicz/eth-cuda-miner \
 
 ### Help
 ```
-Genoil's ethminer 0.9.41-genoil-1.0.8
+Genoil's ethminer 0.9.41-genoil-1.1.7#110
 =====================================================================
 Forked from github.com/ethereum/cpp-ethereum
 CUDA kernel ported from Tim Hughes' OpenCL kernel

@@ -24,9 +24,9 @@ RUN apt-get update \
      libmicrohttpd-dev \
      build-essential
 
-RUN git clone https://github.com/Genoil/cpp-ethereum/ \
+RUN git clone --recursive https://github.com/Genoil/cpp-ethereum/ \
     && cd cpp-ethereum \
-    && git checkout 110 \
+    && git checkout d427e6be9e2dec1cba2b27aabcf91511d21c1b50 \
     && mkdir build \
     && cd build \
     && cmake -DBUNDLE=cudaminer -DCOMPUTE=61 .. \
